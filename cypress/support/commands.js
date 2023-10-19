@@ -23,3 +23,17 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('Login', (email, password) => { 
+    cy.visit('https://qa.qualitydemy.com/login')
+    cy.get('#login-email').type(email)
+    cy.get('#login-password').type(password)
+    cy.get('#sign_up > :nth-child(3) > .btn').click()
+     });
+
+Cypress.Commands.add('Search', (product) => {
+    cy.visit('https://www.amazon.com/')
+    cy.get('#twotabsearchtextbox').type(product)
+    cy.get('#nav-search-submit-button').click()
+    cy.get('#twotabsearchtextbox').should('have.value', product)
+});     

@@ -1,8 +1,9 @@
 describe('Multiple windows test', () => {
     it.skip('Attribute remove', () => {
         cy.visit('https://the-internet.herokuapp.com/windows')
-
-
+        // asagidaki kod click here a tiklandiginda yeni bir pencere acilmadan acilan sayfayi gorebilmemizi saglar
+        // html kodlarindaki <target = blank> yeni sayfada acilmasini sagladigindan;
+        // biz de o attribute u remove ediyoruz
         cy.get('.example > a').invoke('removeAttr', 'target').click()
         cy.get('h3').should('have.text', 'New Window')
     });
