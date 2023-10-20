@@ -1,0 +1,45 @@
+	Cypress’in eski sürümünü yüklemek için terminalde >>> npm install cypress@11.0.0 yazılır.   **11.0.0 kısmı hangi versiyonu istediğimize göre değişir.
+	Otomatik algılama için Cypress Helper, Cypress Snippets, Cypress Fixture İntelliSense gibi eklentiler kullanılabilir.
+	npx cypress open komutu, cypress’in açılması için.
+	npm install cypress-xpath --save-dev komutu xpath yüklemek için
+
+npx cypress run: Electron headLess browser II açmadan ile bütün testleri çalıştırır.
+Hata alınan testlerin ekran görüntülerini screenshots klasörüne koyar
+Bütün testlerin video kayıtlarını videos klasörüne koyar.
+
+npx cypress info: Bilgisayarınızda yüklü browser bilgilerini, cypress versionunu,
+işletim sistemini, hafıza bilgileri gibi verileri gösterir.
+
+npx cypress verify: Cypress 'in yüklü olduğunu onaylar
+
+npx cypress run --browser chrome: Chrome headless(browserlı açmadan) ile bütün testleri çalıştırır
+
+npx cypress run --browser chrome --headed: Chrome browser 'ı açarak bütün testleri çalıştırır.
+
+İSTENEN KLASÖRDEKİ TÜM TESTLERİ ÇALIŞTIRMAK
+
+npx cypress run --spec 'cypress/e2e/day02/’  * Default olarak Electron ile çalıştırır.
+npx cypress run --spec 'cypress/e2e/day02/’ --browser chrome
+*day02 klasörüğndeki bütün testleri Chrome headless (browser açmadan) ile çalıştırır.
+npx cypress run --spec 'cypress/e2e/day02/’ --browser chrome –headed
+*day02 klasörüğndeki bütün testleri Chrome browser II açarak çalıştırır.
+
+TEK BİR TESTİ ÇALIŞTIRMAK
+
+npx cypress run  --spec 'cypress/e2e/day02/01_LoginTest1. cy.js’    * Default olarak Electron ile çalıştırır.
+npx cypress run 'cypress/e2e/day02/01_LoginTest1.cy.js' --browser chrome 
+*day02 klasörüğndeki 01_LoginTest1. cy.js' dosyasını Chrome açmadan çalıştırır
+npx cypress run 'cypress/e2e/day02/01_LoginTest1.cy.js' --browser chrome  --headed
+*day02 klasörüğndeki 01_LoginTest1. cy.js' dosyasını Chrome açarak çalıştırır
+
+ÇALIŞTIRMAK içiN KOD TANIMLAMA
+
+PACKAGE.JSON dosyası içerisindeki script  bölümüne kendimizin belirleyeceği çalıştırma komutları
+“cy: run_day02" :”npx cypress run –spec ' cypress/e2e/day02/' –browser chrome
+
+
+package.json dosyasına "test_dashboard":"npx cypress run --record --key 92a55a41-4bfd-4284-a0be-63e2002385d4"  bu satır eklenirse
+npm run test_dashboard yazarak çalıştırabiliriz
+
+"dashboard_day04":"npx cypress run --spec 'cypress/e2e/day04 --record --key 92a55a41-4bfd-4284-a0be-63e2002385d4" bu satır eklenirse
+npm run dashboard_day04 yazarak dasbhboard'da day04 testlerini execute edebiliriz
